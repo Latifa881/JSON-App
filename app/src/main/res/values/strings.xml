@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">JSON App</string>
+    <string name="selected_item">Selected item:</string>
+    <string-array name="countries">
+        <item>sar</item>
+        <item>jpy</item>
+        <item>inr</item>
+        <item>kwd</item>
+        <item>usd</item>
+        <item>qar</item>
+        <item>aud</item>
+        <item>cny</item>
+    </string-array>
+</resources>
