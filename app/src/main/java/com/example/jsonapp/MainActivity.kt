@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         if (!edEURO.text.isEmpty()) {
             val enteredNumber = edEURO.text.toString().toDouble()
             tvConvertedValue.setText((enteredNumber * num).toString())
-            Toast.makeText(baseContext, (enteredNumber * num).toString(), Toast.LENGTH_LONG).show()
+           // Toast.makeText(baseContext, (enteredNumber * num).toString(), Toast.LENGTH_LONG).show()
         }
     }
 
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         btConvert = findViewById(R.id.btConvert)
 
         // access the items of the list
-        val countriesArrayList = arrayListOf("sar", "jpy", "inr", "kwd", "usd", "qar", "aud", "cny")
+        val countriesArrayList = arrayListOf("Choose the currency","sar", "jpy", "inr", "kwd", "usd", "qar", "aud", "cny")
         if (spCurrencies != null) {
             val adapter = ArrayAdapter(
                 this,
@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
                         }
 
                     }
-                   
+
                 }
 
                 override fun onFailure(call: Call<CurrencyCountriesDetails?>, t: Throwable?) {
