@@ -63,7 +63,8 @@ class MainActivity : AppCompatActivity() {
 
 
         btConvert.setOnClickListener {
-            val apiInterface = APIClient().getClient()?.create(APIInterface::class.java)
+            val apiInterface = APIClient.getClient()?.create(APIInterface::class.java)
+
             if (apiInterface != null) {
 
             apiInterface.doGetListResources()?.enqueue(object : Callback<CurrencyCountriesDetails?> {
