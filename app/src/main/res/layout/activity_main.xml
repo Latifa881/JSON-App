@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ebfafa"
+    android:background="#93018786"
     android:orientation="vertical"
     tools:context=".MainActivity">
 <LinearLayout
@@ -18,27 +18,28 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-
-        android:src="@drawable/currency_converter"
-        ></ImageView>
+        android:src="@drawable/currency_converter" />
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:fontFamily="casual"
         android:gravity="center"
         android:text="Coding Dojo \n Currency Converter"
-        android:textSize="25dp"
-      />
+        android:textSize="25dp" />
 
 </LinearLayout>
 
 
     <TextView
+        android:fontFamily="casual"
         android:id="@+id/tvDate"
+        android:backgroundTint="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="5dp"
         android:background="@drawable/round_button"
         android:layout_marginTop="20dp"
         android:gravity="center"
@@ -52,12 +53,15 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@drawable/round_button"
+        android:backgroundTint="@color/white"
         android:layout_margin="10dp"
         android:weightSum="4">
 
         <TextView
+            android:fontFamily="casual"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:backgroundTint="@color/white"
             android:layout_weight="1"
             android:textSize="20dp"
             android:gravity="center"
@@ -66,26 +70,31 @@
             android:text="Enter EURO value:" />
 
         <EditText
+            android:fontFamily="casual"
             android:id="@+id/edEURO"
+            android:backgroundTint="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:layout_margin="5dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:hint="EURO" />
     </LinearLayout>
 
     <Spinner
+        android:fontFamily="casual"
         android:background="@drawable/round_button"
         android:id="@+id/spCurrencies"
+        android:backgroundTint="@color/white"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_margin="10dp"
     />
 
     <Button
+        android:fontFamily="casual"
         android:id="@+id/btConvert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -95,9 +104,11 @@
   />
 
     <TextView
+        android:fontFamily="casual"
+        android:backgroundTint="@color/white"
         android:id="@+id/tvConvertedValue"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         android:layout_margin="20dp"
         android:background="@drawable/round_button"
         android:text="Converted Value"

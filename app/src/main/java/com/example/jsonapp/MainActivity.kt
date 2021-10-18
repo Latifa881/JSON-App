@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         if (!edEURO.text.isEmpty()) {
             val enteredNumber = edEURO.text.toString().toDouble()
             tvConvertedValue.setText((enteredNumber * num).toString())
-           // Toast.makeText(baseContext, (enteredNumber * num).toString(), Toast.LENGTH_LONG).show()
         }
     }
 
@@ -38,9 +37,8 @@ class MainActivity : AppCompatActivity() {
         tvDate = findViewById(R.id.tvDate)
         spCurrencies = findViewById(R.id.spCurrencies)
         btConvert = findViewById(R.id.btConvert)
-
         // access the items of the list
-        val countriesArrayList = arrayListOf("Choose the currency","sar", "jpy", "inr", "kwd", "usd", "qar", "aud", "cny")
+        val countriesArrayList = Constants.currencies
         if (spCurrencies != null) {
             val adapter = ArrayAdapter(
                 this,
@@ -54,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 parent: AdapterView<*>,
                 view: View, position: Int, id: Long
             ) {
-               cur= countriesArrayList[position]
+                cur = countriesArrayList[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -66,14 +64,11 @@ class MainActivity : AppCompatActivity() {
 
         btConvert.setOnClickListener {
             val apiInterface = APIClient().getClient()?.create(APIInterface::class.java)
-            val call: Call<CurrencyCountriesDetails>? = apiInterface!!.doGetListResources()
-            call?.enqueue(object : Callback<CurrencyCountriesDetails?> {
-                override fun onResponse(
-                    call: Call<CurrencyCountriesDetails?>?,
-                    response: Response<CurrencyCountriesDetails?>
-                ) {
+            if (apiInterface != null) {
+
+            apiInterface.doGetListResources()?.enqueue(object : Callback<CurrencyCountriesDetails?> {
+                override fun onResponse(call: Call<CurrencyCountriesDetails?>?, response: Response<CurrencyCountriesDetails?>) {
                     Log.d("TAG", response.code().toString() + "")
-                    var displayResponse = ""
                     val resource: CurrencyCountriesDetails? = response.body()
                     val date = resource?.date
                     tvDate.text = "Date: $date"
@@ -118,6 +113,7 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         }
-
     }
+
+}
 }
